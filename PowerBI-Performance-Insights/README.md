@@ -7,6 +7,6 @@ This project tracks company performance across sales, revenue, and customer segm
 - Advanced measures with DAX  
 - Interactive drill-through analysis  
 
-📂 📂 [Download Power BI file](https://github.com/YourUsername/data-analytics-portfolio/blob/main/PowerBI-Performance-Insights/Performance_Report.pbix)
+📂 [Download Power BI file](https://github.com/Imthiyass/data-analytics-portfolio/blob/main/PowerBI-Performance-Insights/Performance_Report.pbix)
 📸 Dashboard Preview:  
 
