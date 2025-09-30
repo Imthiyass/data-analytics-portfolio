@@ -9,5 +9,5 @@ This project analyzes sales and profit data using Excel dashboards.
 
 📂 [Download Excel file](Sales and Profit Data.xlsx)  
 📸 Dashboard Preview:  
-![Excel Dashboard](Dashboard_Screenshot1.png)
+Dashboard_Screenshot1.png.png
 
