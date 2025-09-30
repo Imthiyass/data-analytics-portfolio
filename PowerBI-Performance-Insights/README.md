@@ -8,5 +8,6 @@ This project tracks company performance across sales, revenue, and customer segm
 - Interactive drill-through analysis  
 
 📂 [Download Power BI file](https://github.com/Imthiyass/data-analytics-portfolio/blob/main/PowerBI-Performance-Insights/Performance_Report.pbix)
+
 📸 Dashboard Preview:  
 
