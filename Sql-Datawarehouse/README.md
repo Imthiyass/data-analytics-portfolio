@@ -1,47 +1,142 @@
-# sql-data-analytics-project
-A comprehensive collection of SQL scripts for data exploration, analytics, and reporting. These scripts cover various analyses such as database exploration, measures and metrics, time-based trends, cumulative analytics, segmentation, and more.
-This repository contains SQL queries designed to help data analysts and BI professionals quickly explore, segment, and analyze data within a relational database. Each script focuses on a specific analytical theme and demonstrates best practices for SQL queries.
+📦 Data Warehouse Project – End-to-End (Bronze → Silver → Gold)
 
----
+This repository contains a complete Data Warehouse project implemented using the Medallion Architecture.
+It covers ingestion, cleaning, transformation, modelling, and data quality checks across Bronze, Silver, and Gold layers.
+The design ensures scalable analytics, reliable reporting, and easy maintenance.
 
-## ☕ Stay Connected
+🚀 Project Overview
 
-Let's stay in touch! Feel free to connect with me on the following platforms:
+This project follows a structured, layered approach:
 
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](http://bit.ly/3GiCVUE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/baraa-khatib-salkini)
-[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.datawithbaraa.com)
-[![Newsletter](https://img.shields.io/badge/Newsletter-FF5722?style=for-the-badge&logo=substack&logoColor=white)](https://bit.ly/BaraaNewsletter)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/baraasalkini)
-[![Join](https://img.shields.io/badge/Join-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa)
+Bronze Layer → Raw data ingestion
 
-All Courses and their materials are completely free, and all I ask is your support through subscribing, liking, and commenting on my channel. Your engagement means the world to me and It help the channel!
-- ✅ **SQL Full Course:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/sql-ultimate-course/) | [GIT Repo](https://github.com/DataWithBaraa/sql-ultimate-course)
-- ✅ **Tableau Full Course:** [Course Link](https://www.youtube.com/watch?v=K3pXnbniUcM) | [Download Materials](https://www.datawithbaraa.com/tableau/tableau-thank-you/) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
+Silver Layer → Cleaned, standardized data
 
-- ✅ **SQL Data Warehouse Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-warehouse-project)
-- ✅ **SQL Exploratory Data Analysis Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-analytics-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-analytics-project)
-- ✅ **SQL Advanced Data Analysis Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-analytics-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-analytics-project)
-  
-- ✅ **Tableau Sales Project:** [Course Link](https://www.youtube.com/watch?v=dahrmqT5GD4) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
-- ✅ **Tableau HR Project:** [Course Link](https://www.youtube.com/watch?v=UcGF09Awm4Y) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
-- ✅ **ChatGPT:** [Course Link](https://www.youtube.com/watch?v=LJLNfei4i-c) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials)
+Gold Layer → Final analytical data model (Star Schema)
 
----
+This framework supports traceability, auditability, and reprocessing while delivering high-quality business-ready data.
 
-## 🛡️ License
+🧱 Architecture Summary
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+SOURCE SYSTEMS → BRONZE (Raw) → SILVER (Clean) → GOLD (Analytics)
 
-## 🌟 About Me
+Bronze stores raw CRM and ERP tables.
 
-Hi there! I'm **Baraa Khatib Salkini**, also known as **Data With Baraa**. I’m an IT professional and passionate YouTuber on a mission to share knowledge and make working with data enjoyable and engaging!
+Silver applies business cleaning rules, merges, and standardization.
 
-Let's stay in touch! Feel free to connect with me on the following platforms:
+Gold creates fact and dimension views for reporting.
 
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](http://bit.ly/3GiCVUE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/baraa-khatib-salkini)
-[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.datawithbaraa.com)
-[![Newsletter](https://img.shields.io/badge/Newsletter-FF5722?style=for-the-badge&logo=substack&logoColor=white)](https://bit.ly/BaraaNewsletter)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/baraasalkini)
-[![Join](https://img.shields.io/badge/Join-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa)
+📂 Repository Structure
+
+/project-root
+• bronze/
+• load_bronze.sql
+• silver/
+• load_silver.sql
+• gold/
+• gold_layer_views.sql
+• gold_quality_checks.sql
+• data_catalogue.md
+• README.md
+
+📊 Final Data Model (Gold Layer)
+
+The Gold layer uses a Star Schema consisting of:
+
+Dimensions
+
+• gold.dim_customers
+• gold.dim_product
+
+Fact Table
+
+• gold.fact_sales
+
+Relationships
+
+dim_customers ─┐
+└── fact_sales
+dim_product ───┘
+
+🧪 Data Quality Highlights
+
+The project includes robust quality checks to ensure reliability:
+
+• Missing or invalid dimension keys
+• Null values in critical fields
+• Invalid date sequences (order < ship < due)
+• Duplicate customer/product business IDs
+• Negative quantity, price, or amount
+• Orphaned fact records
+
+Scripts available in gold/gold_quality_checks.sql.
+
+🛠️ Key Functional Components
+1. Bronze Layer (Raw Ingestion)
+
+• Bulk insert pattern
+• No transformations
+• Preserves original data for auditing
+• Includes CRM and ERP source tables
+
+2. Silver Layer (Cleaning & Standardization)
+
+• Removes duplicates
+• Standardizes date and text fields
+• Merges CRM + ERP attributes
+• Fixes missing values using business rules
+• Prepares clean, reliable data for modelling
+
+3. Gold Layer (Analytics)
+
+• Builds surrogate keys using ROW_NUMBER
+• Conformed dimensions
+• Clean fact table referencing dimensions
+• Ready for Power BI, Tableau, Looker, and advanced analytics
+
+📘 Data Catalogue (Summary)
+
+Full catalogue lives in gold/data_catalogue.md.
+
+dim_customers
+
+Customer details such as name, country, gender, create date, and business IDs.
+
+dim_product
+
+Product metadata including category, line, cost, maintenance flag, and start date.
+
+fact_sales
+
+Transaction-level data with order dates, quantities, sales amounts, and links to product and customer dimensions.
+
+▶️ How to Run the Project
+
+Run Bronze load
+EXEC bronze.load_bronze;
+
+Run Silver load
+EXEC silver.load_silver;
+
+Create Gold views
+Run gold_layer_views.sql
+
+Execute quality checks
+Run gold_quality_checks.sql
+
+📈 Possible Use Cases
+
+• Sales analytics and dashboards
+• Customer segmentation
+• Product performance analysis
+• Trend forecasting
+• Executives reporting layer
+• Feature generation for ML models
+
+📌 Technologies Used
+
+• SQL Server / T-SQL
+• Medallion Architecture
+• Star Schema modelling
+• Data Quality Framework
+• CRM + ERP integrated data sources
