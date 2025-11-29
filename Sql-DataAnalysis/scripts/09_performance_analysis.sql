@@ -1,5 +1,29 @@
--- 09_performance_analysis.sql
--- Category sales and overall contribution
+/*
+===============================================================================
+Performance Analysis
+===============================================================================
+Purpose:
+    - To evaluate sales distribution by product category.
+    - To calculate each category’s contribution to total sales.
+    - To segment products based on cost ranges.
+
+SQL Functions Used:
+    - SUM()
+    - ROUND()
+    - CAST()
+    - CASE
+    - WINDOW FUNCTIONS (SUM() OVER())
+===============================================================================
+*/
+
+
+/*
+===============================================================================
+1. Category Sales & Contribution (% of Total)
+   - Calculates total sales per category.
+   - Computes each category’s share of overall revenue.
+===============================================================================
+*/
 
 WITH category_sales AS (
     SELECT
@@ -18,7 +42,16 @@ SELECT
 FROM category_sales
 ORDER BY overall_percent DESC;
 
--- Product cost segmentation
+
+
+/*
+===============================================================================
+2. Product Cost Segmentation
+   - Groups products based on defined cost ranges.
+   - Useful for pricing strategy and product distribution analysis.
+===============================================================================
+*/
+
 WITH cost_range AS (
     SELECT
         product_key,
