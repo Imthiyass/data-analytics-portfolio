@@ -1,7 +1,33 @@
--- 10_data_segmentation.sql
--- This file can include segmentation logic; example given below
+/*
+===============================================================================
+Data Segmentation
+===============================================================================
+Purpose:
+    - To segment customers based on spending behavior and activity lifespan.
+    - To generate a reusable reporting view for customer analysis.
 
--- Customer segmentation example based on sales and lifespan
+SQL Functions Used:
+    - SUM()
+    - MIN(), MAX()
+    - DATEDIFF()
+    - GROUP BY
+    - CREATE VIEW
+===============================================================================
+*/
+
+
+/*
+===============================================================================
+1. Customer Segmentation (Spending + Lifespan)
+   - Calculates:
+        • total_spending : Total revenue contributed by each customer
+        • first_order    : First recorded purchase date
+        • last_order     : Most recent purchase date
+        • lifespan       : Active duration of the customer (in months)
+   - Output is stored as a reporting view.
+===============================================================================
+*/
+
 CREATE VIEW gold.report_customers AS
 WITH customer_spending AS (
     SELECT
@@ -15,4 +41,10 @@ WITH customer_spending AS (
         ON s.customer_key = c.customer_key
     GROUP BY c.customer_key
 )
-SELECT * FROM customer_spending;
+SELECT 
+    customer_key,
+    total_spending,
+    first_order,
+    last_order,
+    lifespan
+FROM customer_spending;
