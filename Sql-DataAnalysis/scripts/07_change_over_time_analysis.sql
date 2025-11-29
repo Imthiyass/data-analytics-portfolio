@@ -1,5 +1,30 @@
--- 07_change_over_time_analysis.sql
--- Yearly total sales and moving averages
+/*
+===============================================================================
+Change Over Time Analysis
+===============================================================================
+Purpose:
+    - To analyze sales trends over months and years.
+    - To compute running totals and moving averages for sales insights.
+    - To observe long-term growth patterns using window functions.
+
+SQL Functions Used:
+    - YEAR()
+    - MONTH()
+    - DATE_TRUNC()
+    - SUM() OVER()
+    - AVG() OVER()
+    - ORDER BY
+    - GROUP BY
+===============================================================================
+*/
+
+
+/*
+===============================================================================
+1. Monthly Trend Analysis
+   - Total sales, customers, and quantity by month.
+===============================================================================
+*/
 
 SELECT 
     YEAR(order_date) AS order_year,
@@ -12,7 +37,16 @@ WHERE order_date IS NOT NULL
 GROUP BY YEAR(order_date), MONTH(order_date)
 ORDER BY YEAR(order_date), MONTH(order_date);
 
--- Running total and moving average of sales
+
+
+/*
+===============================================================================
+2. Yearly Running Total & Moving Average
+   - Running totals show cumulative growth.
+   - Moving averages smooth out yearly price trends.
+===============================================================================
+*/
+
 SELECT 
     order_date,
     total_sales,
