@@ -1,5 +1,30 @@
--- 08_cumulative_analysis.sql
--- Yearly sales per product with differences from average and previous year
+/*
+===============================================================================
+Cumulative Analysis
+===============================================================================
+Purpose:
+    - To compute yearly sales per product.
+    - To compare current sales with:
+        • The product's historical average (diff_avg)
+        • Previous year's sales (diff_py)
+    - To identify performance trends over time.
+
+SQL Functions Used:
+    - YEAR()
+    - AVG() OVER()
+    - LAG() OVER()
+    - PARTITION BY
+    - ORDER BY
+===============================================================================
+*/
+
+
+/*
+===============================================================================
+1. Prepare Yearly Product Sales
+   - Aggregates total sales per product for each year.
+===============================================================================
+*/
 
 WITH yearly_product_sales AS (
     SELECT 
@@ -12,6 +37,18 @@ WITH yearly_product_sales AS (
     WHERE s.order_date IS NOT NULL
     GROUP BY YEAR(s.order_date), p.product_name
 )
+
+
+/*
+===============================================================================
+2. Cumulative & Comparative Metrics
+   - avg_sales:   Average yearly sales per product.
+   - diff_avg:    Difference from product’s average performance.
+   - py_sales:    Previous year's sales.
+   - diff_py:     Difference compared to last year.
+===============================================================================
+*/
+
 SELECT 
     order_date,
     product_name,
